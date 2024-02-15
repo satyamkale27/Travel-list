@@ -18,8 +18,12 @@ function Logo() {
   return <h1>🌴 Far away 👜</h1>;
 }
 function Form() {
+  function handelsubmit(e) {
+    e.preventDefault(); // e is event handler and preventdefault()
+    //  function prevents reloading of page
+  }
   return (
-    <form className="add-form">
+    <form className="add-form" onSubmit={handelsubmit}>
       <h3>what do you need for your trip?</h3>
       <select>
         {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
