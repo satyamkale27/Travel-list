@@ -21,12 +21,14 @@ function Logo() {
 }
 function Form() {
   const [description, setdescription] = useState("");
-  const [Quantity, setQuantity] = useState(5);
+  const [Quantity, setQuantity] = useState(1);
 
   function handelsubmit(e) {
-    e.preventDefault(); // e is event handler and preventdefault()
-    //  function prevents reloading of page
+    e.preventDefault(); // e is event handler and preventdefault()  function prevents reloading of page
     // (Number(e.target.value)) .value gives string so we used number function to get number and not string from .value
+
+    const newItem = { description, Quantity, packed: false, id: Date.now() };
+    console.log(newItem);
   }
   return (
     <form className="add-form" onSubmit={handelsubmit}>
