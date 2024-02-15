@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const initialItems = [
   { id: 1, description: "Passports", quantity: 2, packed: false },
   { id: 2, description: "Socks", quantity: 12, packed: true },
@@ -18,21 +20,33 @@ function Logo() {
   return <h1>🌴 Far away 👜</h1>;
 }
 function Form() {
+  const [description, setdescription] = useState("");
+  const [Quantity, setQuantity] = useState(5);
+
   function handelsubmit(e) {
     e.preventDefault(); // e is event handler and preventdefault()
     //  function prevents reloading of page
+    // (Number(e.target.value)) .value gives string so we used number function to get number and not string from .value
   }
   return (
     <form className="add-form" onSubmit={handelsubmit}>
       <h3>what do you need for your trip?</h3>
-      <select>
+      <select
+        value={Quantity}
+        onChange={(e) => setQuantity(Number(e.target.value))}
+      >
         {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
           <option value={num} key={num}>
             {num}
           </option>
         ))}
       </select>
-      <input type="text" placeholder="Item..." />
+      <input
+        type="text"
+        placeholder="Item..."
+        value={description}
+        onChange={(e) => setdescription(e.target.value)}
+      />
       <button>Add</button>
     </form>
   );
