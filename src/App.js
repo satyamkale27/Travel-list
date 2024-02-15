@@ -29,6 +29,8 @@ function Form() {
 
     const newItem = { description, Quantity, packed: false, id: Date.now() };
     console.log(newItem);
+    setdescription("");
+    setQuantity(1);
   }
   return (
     <form className="add-form" onSubmit={handelsubmit}>
