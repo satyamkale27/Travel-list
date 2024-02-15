@@ -22,10 +22,10 @@ function Logo() {
 function Form() {
   const [description, setdescription] = useState("");
   const [Quantity, setQuantity] = useState(1);
-
   function handelsubmit(e) {
     e.preventDefault(); // e is event handler and preventdefault()  function prevents reloading of page
     // (Number(e.target.value)) .value gives string so we used number function to get number and not string from .value
+    if (!description) return; // if acts like guard function if there is no description it returns here itself and prevents submission of null string //
 
     const newItem = { description, Quantity, packed: false, id: Date.now() };
     console.log(newItem);
