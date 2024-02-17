@@ -25,7 +25,7 @@ export default function App() {
 function Logo() {
   return <h1>🌴 Far away 👜</h1>;
 }
-function Form() {
+function Form({ onAddItems }) {
   const [description, setdescription] = useState("");
   const [Quantity, setQuantity] = useState(1);
 
@@ -36,7 +36,7 @@ function Form() {
 
     const newItem = { description, Quantity, packed: false, id: Date.now() };
     console.log(newItem);
-    handleAddItems(newItem);
+    onAddItems(newItem);
 
     setdescription("");
     setQuantity(1);
