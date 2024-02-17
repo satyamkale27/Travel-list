@@ -8,11 +8,16 @@ const initialItems = [
 
 export default function App() {
   const [items, setitems] = useState([]); // moved the state to parent component of packing list //
+
+  function handleAddItems(item) {
+    setitems((items) => [...items, item]);
+  }
+
   return (
     <div className="app">
       <Logo />
-      <Form />
-      <PackingList />
+      <Form onAddItems={handleAddItems} />
+      <PackingList items={items} />
       <Stats />
     </div>
   );
@@ -23,10 +28,6 @@ function Logo() {
 function Form() {
   const [description, setdescription] = useState("");
   const [Quantity, setQuantity] = useState(1);
-
-  function handleAddItems(item) {
-    setitems((items) => [...items, item]);
-  }
 
   function handelsubmit(e) {
     e.preventDefault(); // e is event handler and preventdefault()  function prevents reloading of page
@@ -63,11 +64,11 @@ function Form() {
     </form>
   );
 }
-function PackingList() {
+function PackingList({ items }) {
   return (
     <div className="list">
       <ul>
-        {initialItems.map((item) => (
+        {items.map((item) => (
           <Item item={item} key={item.id} />
         ))}
       </ul>
