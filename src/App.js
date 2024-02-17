@@ -7,6 +7,7 @@ const initialItems = [
 ];
 
 export default function App() {
+  const [items, setitems] = useState([]); // moved the state to parent component of packing list //
   return (
     <div className="app">
       <Logo />
@@ -22,7 +23,11 @@ function Logo() {
 function Form() {
   const [description, setdescription] = useState("");
   const [Quantity, setQuantity] = useState(1);
-  const [items, setitems] = useState([]);
+
+  function handleAddItems(item) {
+    setitems((items) => [...items, item]);
+  }
+
   function handelsubmit(e) {
     e.preventDefault(); // e is event handler and preventdefault()  function prevents reloading of page
     // (Number(e.target.value)) .value gives string so we used number function to get number and not string from .value
@@ -30,6 +35,8 @@ function Form() {
 
     const newItem = { description, Quantity, packed: false, id: Date.now() };
     console.log(newItem);
+    handleAddItems(newItem);
+
     setdescription("");
     setQuantity(1);
   }
