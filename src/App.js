@@ -10,10 +10,12 @@ export default function App() {
   const [items, setitems] = useState([]); // moved the state to parent component of packing list //
 
   function handleAddItems(item) {
+    console.log("item propppp", item); // used here to debug the code //
     setitems((items) => [...items, item]);
   }
 
   function handelDeleteItem(id) {
+    console.log("item idddd", id); // used here to debug the code //
     setitems((items) => items.filter((item) => item.id !== id));
   }
 
