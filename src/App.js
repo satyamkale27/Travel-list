@@ -80,10 +80,14 @@ function PackingList({ items, onDeleteItem, onToggleItems }) {
   // onDeleteItem added new prop //
 
   const [SortBy, setSortBy] = useState("input");
+  let sortedItems;
+
+  if (SortBy === "input") sortedItems = items;
+
   return (
     <div className="list">
       <ul>
-        {items.map((item) => (
+        {sortedItems.map((item) => (
           <Item
             item={item}
             onDeleteItem={onDeleteItem}
