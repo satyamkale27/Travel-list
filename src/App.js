@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Logo from "./Logo";
 import Form from "./Form";
-import { PackingList } from "./PackingList";
+import PackingList from "./PackingList";
+import Item from "./Item";
 export default function App() {
   const [items, setitems] = useState([]); // moved the state to parent component of packing list //
 
@@ -34,22 +35,6 @@ export default function App() {
       />
       <Stats items={items} />
     </div>
-  );
-}
-
-export function Item({ item, onDeleteItem, onToggleItems }) {
-  return (
-    <li>
-      <input
-        type="checkbox"
-        value={item.packed}
-        onChange={() => onToggleItems(item.id)}
-      />
-      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
-        {item.Quantity} {item.description}
-      </span>
-      <button onClick={() => onDeleteItem(item.id)}>❌</button>
-    </li>
   );
 }
 

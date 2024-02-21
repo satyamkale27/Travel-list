@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Item } from "./App";
-
-export function PackingList({ items, onDeleteItem, onToggleItems }) {
+export default function PackingList({ items, onDeleteItem, onToggleItems }) {
   // onDeleteItem added new prop //
   // console.log(
   //   "deleteeeitem",
