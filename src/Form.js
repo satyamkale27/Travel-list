@@ -1,4 +1,4 @@
-function Form({ onAddItems }) {
+export default function Form({ onAddItems }) {
   const [description, setdescription] = useState("");
   const [Quantity, setQuantity] = useState(1);
   function handelsubmit(e) {
