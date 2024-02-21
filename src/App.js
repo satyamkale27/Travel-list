@@ -4,7 +4,7 @@ export default function App() {
   const [items, setitems] = useState([]); // moved the state to parent component of packing list //
 
   function handleAddItems(item) {
-    console.log("item propppp", item); // used here to debug the code //
+    // console.log("item propppp", item.id); // used here to debug the code //
     setitems((items) => [...items, item]);
   }
 
@@ -40,7 +40,6 @@ function Logo() {
 function Form({ onAddItems }) {
   const [description, setdescription] = useState("");
   const [Quantity, setQuantity] = useState(1);
-
   function handelsubmit(e) {
     e.preventDefault(); // e is event handler and preventdefault()  function prevents reloading of page
     // (Number(e.target.value)) .value gives string so we used number function to get number and not string from .value
@@ -78,7 +77,10 @@ function Form({ onAddItems }) {
 }
 function PackingList({ items, onDeleteItem, onToggleItems }) {
   // onDeleteItem added new prop //
-
+  // console.log(
+  //   "deleteeeitem",
+  //   items.map((item) => item.id)
+  // ); // used to debug items //
   const [SortBy, setSortBy] = useState("input");
   let sortedItems;
 
@@ -111,6 +113,9 @@ function PackingList({ items, onDeleteItem, onToggleItems }) {
           <option value="description">Sort by description</option>
           <option value="packed">Sort by packed status</option>
         </select>
+        <button onClick={() => items.forEach((item) => onDeleteItem(item.id))}>
+          clear list
+        </button>
       </div>
     </div>
   );
