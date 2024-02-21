@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Logo from "./Logo";
 export default function App() {
   const [items, setitems] = useState([]); // moved the state to parent component of packing list //
 
@@ -34,9 +34,7 @@ export default function App() {
     </div>
   );
 }
-function Logo() {
-  return <h1>🌴 Far away 👜</h1>;
-}
+
 function Form({ onAddItems }) {
   const [description, setdescription] = useState("");
   const [Quantity, setQuantity] = useState(1);
