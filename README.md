@@ -1,3 +1,3 @@
-### the image to travel-list app
+### the image of travel-list app
 
 ![](/resources/travel.png)
